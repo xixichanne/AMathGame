@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>哦，我喜欢数学！</title>
+		<link type="text/css" rel="stylesheet" href="stylesheets/animate.min.css" />
+		<link type="text/css" rel="stylesheet" href="stylesheets/style.css" />
+		<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+		<script type="text/javascript" src="javascripts/jquery.ez-bg-resize.js"></script>
+		<!-- <script type="text/javascript" src="../mysql.js"></script> -->
+		<script type="text/javascript">
+		$(document).ready(function() {
+    		$("body").ezBgResize({
+       		img     : "images/yellow.png", // Relative path example.  You could also use an absolute url (http://...).
+        	opacity : 1, // Opacity. 1 = 100%.  This is optional.
+        	center  : true // Boolean (true or false). This is optional. Default is true.
+    		});
+		});
+		
+		</script>
+
+	</head>
+	<body>
+	<img id="restart1" src="images/restart.png" onclick="window.location.href='index.html'"/>
+	<img id="clap" src="images/clap2.png" />
+		<div class="container">
+			<img id="rankhead" src="images/two.png" />
+			<span id="head1">RECORD</span>
+			<img id="one" src="images/one.png" />
+			<span id="r1">1 <%=data1.username%> <%=data1.grade%>ms <%=data1.level%> </span>
+			<img id="two" src="images/one.png" />
+			<span id="r2">2 <%=data2.username%> <%=data2.grade%>ms <%=data2.level%></span>
+			<img id="three"  src="images/one.png" />
+			<span id="r3">3 <%=data3.username%> <%=data3.grade%>ms <%=data3.level%></span>
+			<img id="four"  src="images/one.png" />
+			<img id="five"  src="images/one.png" />
+			<img id="six"  src="images/one.png" />
+			<img id="seven"  src="images/one.png" />
+			<img id="eight"  src="images/one.png" />
+			<img id="nine"  src="images/one.png" />
+			<img id="ten"  src="images/one.png" />
+			<span id="r4">4 <%=data4.username%> <%=data4.grade%>ms <%=data4.level%></span>
+			<span id="r5">5 <%=data5.username%> <%=data5.grade%>ms <%=data5.level%></span>
+			<span id="r6">6 <%=data6.username%> <%=data6.grade%>ms <%=data6.level%></span>
+			<span id="r7">7 <%=data7.username%> <%=data7.grade%>ms <%=data7.level%></span>
+			<span id="r8">8 <%=data8.username%> <%=data8.grade%>ms <%=data8.level%></span>
+			<span id="r9">9 <%=data9.username%> <%=data9.grade%>ms <%=data9.level%></span>
+			<span id="r10">10 <%=data10.username%> <%=data10.grade%>ms <%=data10.level%></span>
+		</div>
+		
+	</body>
+<script>
+
+
+    $('#r1').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+        $('#r2').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $('#r3').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                $('#r4').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                    $('#r5').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                        $('#r6').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                            $('#r7').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                                $('#r8').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                                    $('#r9').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                                        $('#r10').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+   	 });
+</script>
+</html>
