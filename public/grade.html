@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>哦，我喜欢数学！</title>
+    <link type="text/css" rel="stylesheet" href="stylesheets/animate.min.css" />
+    <link rel="stylesheet" href="stylesheets/jquery.running.css">
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.ez-bg-resize.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.running.min.js"></script>
+
+
+    <style>
+        #S,#A,#B,#C,#D,#E{
+            font-family: BELGIUMfont;
+            font-size: 400px;
+            color: white;
+            text-shadow: 5px 4px 0px #000000;
+            position: absolute;
+            left: 640px;
+            top:100px;
+            display: none;
+        }
+        #ff{
+        	 font-family: BELGIUMfont;
+            font-size: 400px;
+            color: white;
+            text-shadow: 5px 4px 0px #000000;
+            position: absolute;
+            left: 640px;
+            top:100px;
+        }
+        
+        
+        #cry{
+        	width: 350px;
+        	height: 400px;
+        	position: absolute;
+        	left: 200px;
+        	top:180px;
+        	
+        }
+        #g{
+        	font-family: BELGIUMfont;
+            font-size: 100px;
+            color: white;
+            text-shadow: 5px 4px 0px #000000;
+            position: absolute;
+            left: 140px;
+            top:80px;
+            display: none;
+        }
+        
+        #F{
+        	display: none;
+        }
+
+        form{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class=container>
+
+    <span id="g"></span>
+    <span id="S">S</span>
+    <span id="A">A</span>
+    <span id="B">B</span>
+    <span id="C">C</span>
+    <span id="D">D</span>
+    <span id="E">E</span>
+    <div id="F">
+    	<img id="cry" src="images/cry.png"/>
+    	<span id="ff">F</span>
+    </div>
+    <form action="/adduser" method="get">
+        <input name="username" type="text"/>
+        <input name="grade" type="text" />
+        <input name="level" type="text" />
+
+    </form>
+</div>
+<script type="text/javascript">
+    
+    var level;
+    var person;
+    $(document).ready(function() {
+        $("body").ezBgResize({
+            img     : "images/yellow.png", // Relative path example.  You could also use an absolute url (http://...).
+            opacity : 1, // Opacity. 1 = 100%.  This is optional.
+            center  : true // Boolean (true or false). This is optional. Default is true.
+        });
+    });
+    
+    
+   
+   
+    $(function () {
+
+ function add(level) {
+        var person = prompt("请输入名字")
+        
+        var username = person;
+        var grade = localStorage.millisecond;
+        
+        $('input[name=username]').val(username);
+        $('input[name=grade]').val(grade);
+        $('input[name=level]').val(level);
+
+         $("form").trigger('submit');
+
+    }
+        
+    document.getElementById('g').innerHTML=localStorage.millisecond+"ms";
+     $('#g').css("display", "inline-block").addClass("zoomInDown" + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+        });
+        
+    $('body').running();
+    if(localStorage.millisecond<=12000) {
+        level="S";
+        $('#S').css("display", "inline-block").addClass("zoomInDown" + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+
+            add('S');
+            setTimeout("javascript:location.href='rank'", 1000);
+        });
+    }else if(localStorage.millisecond<12400){
+        level="A";
+    	 $('#A').css("display", "inline-block").addClass("zoomInDown" + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+
+
+             add('A');
+             setTimeout("javascript:location.href='rank'", 1000);
+        });
+    }else if(localStorage.millisecond<12800){
+        level="B";
+    	 $('#B').css("display", "inline-block").addClass("zoomInDown" + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+
+
+             add('B');
+             setTimeout("javascript:location.href='rank'", 1000);
+        });
+    }else if(localStorage.millisecond<13100){
+        level="C";
+    	 $('#C').css("display", "inline-block").addClass("zoomInDown" + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+
+
+             add('C');
+             setTimeout("javascript:location.href='rank'", 1000);
+        });
+    }else if(localStorage.millisecond<13500){
+        level="D";
+    	 $('#D').css("display", "inline-block").addClass("zoomInDown" + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+
+             add('D');
+             setTimeout("javascript:location.href='rank'", 1000);
+        });
+    }else if(localStorage.millisecond<14000){
+        level="E";
+
+        $('#E').css("display", "inline-block").addClass("zoomInDown" + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+    	   
+    	add('E');
+            setTimeout("javascript:location.href='rank'", 1000);
+        });
+    }else {
+        level="F";
+
+        $('#F').css("display", "inline-block").addClass("zoomInDown" + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+         setTimeout("javascript:location.href='index.html'", 1600);
+
+        });
+    }
+
+})
+
+
+
+
+
+</script>
+</body>
+</html>

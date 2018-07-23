@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>哦，我喜欢数学！</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/buttons.css">
+    <link type="text/css" rel="stylesheet" href="stylesheets/animate.min.css" />
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+
+</head>
+<body background="images/游戏背景.png">
+<div class="row">
+    <div class="time-holder">
+        <p id="timetext" > 000ms </p>
+    </div>
+</div>
+
+<div class="equation-folder">
+    <p class="pre">ready go!</p>
+    <img src="images/out.png" id="out"/>
+
+    <p class="equation">
+        <span id="A"></span><img id="handA" src="images/手.png"/>
+        <span id="plus"></span><img id="handB" src="images/手.png"/>
+        <span id="B"></span>
+        <span id="equal"></span>
+        <span id="what"></span> </p>
+</div>
+<img  id="restart1" onclick="window.location.href='index.html'" src="images/restart.png" />
+<img id="stop1" src="images/pause.png"   onclick="pause()"/>
+<div class="option">
+    <button  type="button" class="button button-3d button-box button-jumbo" id="option1"></button>
+    <button  type="button" class="button button-3d button-box button-jumbo" id="option2"></button>
+    <button  type="button" class="button button-3d button-box button-jumbo" id="option3"></button>
+</div>
+<div id="popupcontent">
+    <h1>Instruction</h1>
+    <br/><br/>
+    <p>哦，我喜欢数学！</p>
+    <p>首先，请记住小手掩盖的数字。</p>
+    <p>以最快速度解决这些简单的数学问题！</p>
+</div>
+</body>
+
+<script type="text/javascript">
+    var item1;
+    var item2;
+    var item3=10;
+
+    var result;
+    var count=0;
+
+    function gameover(){
+        $('#out').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        });
+        setTimeout("javascript:location.href='index.html'", 1600);
+    }
+    function rand(min, max) {
+        return Math.round(Math.random() * (max - min) + min)
+    }//产生随机数
+    function additems(){
+        count+=1;
+        if(count==1){
+        	
+        	item3=eval('item'+rand(1,2));
+        	if(item3==item1) id=handA;else id=handB;
+        	$(id).css("display","inline-block").addClass("bounceInUp"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+        	});
+        	$('#handA,#handB').animate({
+            animationDuration:'-=175ms'
+        });
+        	
+            result=rand(0,9);
+            item1=rand(0,result);
+            item2=result-item1;
+            
+        }else if(count<=8){
+        	
+        	item3=eval('item'+rand(1,2));
+        	if(item3==item1) id=handA;else id=handB;
+        	$(id).css("display","inline-block").addClass("bounceInUp"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+        	});
+        	$('#handA,#handB').animate({
+            animationDuration:'-=175ms'
+        });
+        	
+            result=rand(item3,9);
+            if(item3==item1)item2=result-item1;
+            else item1=result-item2;
+        }else {
+        	window.clearInterval(int);
+            localStorage.millisecond=millisecond;
+            return(setTimeout("javascript:location.href='grade.html'",1000));
+        }
+
+
+        var resb=rand(0,9);
+        var resc=rand(0,9);
+        while(resb==result){
+            resb=rand(0,9);
+        }
+        while(resc==result||resc==resb){
+            resc=rand(0,9);
+        }
+
+        var oops1=rand(1,3);
+        var oops2=rand(1,3);
+        var oops3=rand(1,3);
+        while(oops2==oops1) {
+            oops2=rand(1,3);
+        }
+        while(oops3==oops1||oops3==oops2) {
+            oops3=rand(1,3);
+        }
+
+
+        document.getElementById("A").innerHTML = item1;
+        document.getElementById("B").innerHTML = item2;
+        document.getElementById("plus").innerHTML="+";
+        document.getElementById("equal").innerHTML="=";
+        document.getElementById("what").innerHTML="_";
+        document.getElementById('option'+oops1).innerHTML = result;
+        document.getElementById('option'+oops2).innerHTML = resb;
+        document.getElementById('option'+oops3).innerHTML = resc;
+
+
+        document.getElementById('option'+oops1).onclick = function(){
+            document.getElementById("what").innerHTML=result;
+            $(id).addClass("bounceOutDown"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+
+                additems();
+                $(id).removeClass("bounceOutDown");
+            });
+
+        };
+        document.getElementById('option'+oops2).onclick=function (){
+
+            gameover();
+        }
+        document.getElementById('option'+oops3).onclick=function (){
+
+            gameover();
+        }
+
+
+    }
+
+
+
+    var baseText = null;
+
+    function showPopup(w,h){
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.top = "200px";
+        popUp.style.left = "200px";
+        popUp.style.width = w + "px";
+        popUp.style.height = h + "px";
+        if (baseText == null) baseText = popUp.innerHTML;
+        popUp.innerHTML = baseText + "<div id='close'><button class='button button-3d button-primary button-rounded' onclick='hidePopup();start();'>返回<button></div>";
+        var sbar = document.getElementById("close");
+        sbar.style.marginTop = (parseInt(h)-300) + "px";
+
+        popUp.style.visibility = "visible";
+
+    }
+    function hidePopup(){
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.visibility = "hidden";
+    }
+    var millisecond=0;//毫秒
+
+    var int;
+    //重置函数
+    function Reset()
+    {
+        window.clearInterval(int);
+        millisecond=0;
+        document.getElementById('timetext').innerHTML='000ms';
+    }
+    //开始函数
+    function start()
+    {
+        int=setInterval(timer,49);//每隔1毫秒执行一次timer函数
+
+    }
+    //计时函数
+    function timer()
+    {
+        millisecond=millisecond+49;
+
+        document.getElementById('timetext').innerHTML=millisecond+'ms';
+
+
+    }
+    //暂停函数
+
+    function pause()
+    {
+        window.clearInterval(int);
+        showPopup(920,465);
+    }
+    $('.pre').css("display","inline-block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        $('.pre').addClass("bounceOutDown"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            start();
+            additems();
+        });});
+
+
+
+
+
+</script>
+</html>

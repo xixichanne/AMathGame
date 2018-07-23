@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>哦，我喜欢数学！</title>
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<link type="text/css" rel="stylesheet" href="stylesheets/animate.min.css" />
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<style>
+		.rule1{
+			width: 400px;
+			height: 250px;
+			padding-top: 10px;
+			padding-bottom: 80px;
+			background-color: white;
+			border: 3px solid black;
+			margin: 0 auto;
+			border-radius:25%;
+			position: absolute;;
+			top:150px;
+			left: 490px;
+			z-index:-1;
+
+		}
+		.p3{
+			position:absolute;;
+			left: 750px;
+
+			z-index:2;
+		}
+		.p4{
+			position: absolute;
+			left: 420px;
+			top:150px;
+			z-index:2;
+		}
+		.p2{
+			position: absolute;
+			left: 470px;
+			top:480px;
+			z-index:2;
+			display: none;
+		}
+
+	</style>
+</head>
+<body>
+<div class="container1" style="background: yellowgreen;">
+	<div id="play" align="center" >
+		<!--<p style="font-family: Komika Axis; font-size: 40px;color: white;" align="center">play-->
+		<a  href="game.html"><img width="350" height="100" src="images/play1.png" /></a>
+	</div>
+	<div c="p3" align="center" >
+		<img class="p4" height="70" src="images/p4.png" />
+		<!--	<span  style="margin-bottom:330px;font-family: Roboto; font-size: 30px;color: saddlebrown;font-weight: 900;text-shadow: 1px 0px 0px black;">哦，我喜欢数学！&nbsp;&nbsp;</span>
+-->
+		<img class="p3" height="180" src="images/p3.png" />
+	</div>
+	<div id="rule" class="rule1">
+		<p style="color: saddlebrown;font-size:22px;padding-top: 90px;padding-left: 10px;">首先，请先记住这些小手掩盖的数字。</p>
+		<p style="color: saddlebrown;font-size:22px;padding-left: 10px;">以最快速度解决这些简单的数学问题！</p>
+	</div>
+	<div class="p2" id="grade" align="center" style="padding-top: 20px;">
+		<img width="450" height="100" src="images/p2.png" />
+	</div>
+</div>
+
+
+</body>
+<script>
+    $('#play').css("display","block").addClass("bounceInRight"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        $('.p2').css("display","block").addClass("bounceInUp"+ ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        });});
+</script>
+</html>
